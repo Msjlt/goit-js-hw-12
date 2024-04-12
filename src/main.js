@@ -52,17 +52,19 @@ async function handleSubmit(event) {
   try {
     const data = await servicePicture(currentQuery, currentPage);
 
-    if (data.hits.length === 0) {
+    // Если в ответе приходит хотя бы одно изображение, рендерим их
+    if (data.hits.length > 0) {
+      list.innerHTML = createMarkup(data.hits);
+      toggleLoadButton(data.totalHits);
+      gallery.refresh();
+    } else {
+      // Если в ответе нет изображений, скрываем кнопку "Load more"
       loadButton.style.display = 'none';
       iziToast.error({
         title: 'Error',
         message:
           'Sorry, there are no images matching your search query. Please try again!',
       });
-    } else {
-      list.innerHTML = createMarkup(data.hits);
-      toggleLoadButton(data.totalHits);
-      gallery.refresh();
     }
   } catch (error) {
     console.error('Error:', error);
