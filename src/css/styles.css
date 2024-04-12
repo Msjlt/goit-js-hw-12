@@ -30,7 +30,7 @@ input[type='text'] {
   box-sizing: border-box;
 }
 
-button[type='submit'] {
+#search-button[type='submit'] {
   padding: 10px;
   border: none;
   border-radius: 5px;
@@ -41,7 +41,7 @@ button[type='submit'] {
   transition: background-color 0.3s ease;
 }
 
-button[type='submit']:hover {
+#search-button[type='submit']:hover {
   background-color: #0056b3;
 }
 
@@ -103,4 +103,19 @@ button[type='submit']:hover {
     left: 100%;
     transform: translateX(0%);
   }
+}
+
+#load-button {
+  display: block;
+  margin: 0 auto;
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+#load-button[type='submit']:hover {
+  background-color: #0056b3;
 }
